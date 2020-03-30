@@ -4,7 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-//import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import tileData from './tiledata'
 
 const useStyles = makeStyles(theme => ({
@@ -53,8 +53,8 @@ export default function SingleLineGridList() {
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>
         {tileData.map(tile => (
-          <GridListTile key={tile.image}>
-            <img src={tile.image} alt={tile.title} />
+          <GridListTile key={tile.img}>
+            <img src={tile.img} alt={tile.title} />
             <GridListTileBar
               title={tile.title}
               classes={{
@@ -63,7 +63,7 @@ export default function SingleLineGridList() {
               }}
               actionIcon={
                 <IconButton aria-label={`star ${tile.title}`}>
-                  
+                  <StarBorderIcon className={classes.title} />
                 </IconButton>
               }
             />

@@ -13,7 +13,7 @@ return(
            <div>
                 <div class="nav-wrapper">
                 
-                <img src={logo} height='60' alt='logo'/> 
+                <img src={logo} height='60' alt='logo'  /> 
                 
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><Link  to="/">Home </Link></li>
@@ -38,5 +38,6 @@ return(
 )
 
 }
+
 
 export default Navbar
