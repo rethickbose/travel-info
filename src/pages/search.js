@@ -19,9 +19,24 @@ const Search=()=>{
 }
 
 export default Search
+ const displayBlogPost = (posts) => {
 
-
+                    if (!posts.length) return null;
+                
+                
+                    return posts.map((post, cityName) => (
+                    <div key={cityName} className="blog-post__display">
+                        <h3>{post.countryName}</h3>
+                        <p>{post.continent}</p>
+                        <p>{post.currencyUsed}</p>
+                        <p>{post.languages}</p>
+                        <p>{post.cityName}</p>
+                    </div>
+            ));
+          };
+ .then(res => console.log(res)) 
 */
+
 
 import  React  from 'react';
 import {useState} from 'react';
@@ -42,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Search=( {query} )=>{
+const Search=(  )=>{
 
     const classes = useStyles();
 
@@ -51,27 +66,52 @@ const Search=( {query} )=>{
     const [continent, setcontinent] = useState('');
     const [currencyUsed, setcurrencyUsed] = useState('');
     const [languages, setlanguages] = useState([]);
+    
+    const displayBlogPost = (posts) => {
+
+        if (!posts.length) return null;
+        console.log(<displayBlogPost posts/>)
+
+    
+        return posts.map((post, cityName) => (
+        <div key={cityName} className="blog-post__display">
+            <h3>{post.countryName}</h3>
+            <p>{post.continent}</p>
+            <p>{post.currencyUsed}</p>
+            <p>{post.languages}</p>
+            <p>{post.cityName}</p>
+        </div>
+        
+));
+};
+    const [state,  setState]=useState([]);
 
     const handlecityNameChange =(e)=> {
         setcityName(e.target.value);
       }
 
-      const handleSubmit =(e)=> {
-        e.preventDefault();
 
-        const saveObject = {
-            
-            cityName: cityName,
-            
-          }
-    
-        
-        /*
-                axios     
-                .post("http://localhost:4543/api/city",saveObject)      
-                .then(res => console.log(res))      
-                .catch(err => console.log(err));
-          */
+
+      const handleSubmit =(e)=> {
+                e.preventDefault();
+
+                const saveObject = {
+                    
+                    cityName: cityName
+                    
+                }
+               
+            console.log(saveObject)
+                
+                
+                        axios     
+                        .post("http://localhost:4543/api/city",saveObject)      
+                        
+                        .then(res=>{setState(res.data)
+                        console.log(state)})    
+                        .catch(err => console.log(err));
+
+          displayBlogPost(state)
       }
 
     return(
@@ -95,27 +135,15 @@ const Search=( {query} )=>{
                         className={classes.submit}
                     >
                         Search
-            </Button>
-            <div>
-                {query.map((article,key)=>(
-                      <div>  
-                        
-                        <p>
-                            {key=cityName}
-                            {article.countryName}
-                            {article.cityName}
-                            {article.continent}
-                            {article.currencyUsed}
-                            {article.languages}
-                        </p>
-                        </div>
-
-                            )  )}
-
-                </div>
+                </Button>
+            
          </form> 
          </div>
     )
 }
+
+
+
+
 
 export default Search

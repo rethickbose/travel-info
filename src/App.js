@@ -54,7 +54,7 @@ axios.defaults.baseURL = 'http://localhost:4543';
         <div className='container'>
             <Route exact path="/" component={Home} /> 
             <Route exact path="/globalinfo" render={ ()=><GlobalInfo posts={posts} />} /> 
-            <Route exact path="/search" render={     ()=><Search query={query} /> } />
+            <Route exact path="/search" render={     ()=><Search  /> } />
         </div>
         
     </Router>
