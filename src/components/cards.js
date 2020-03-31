@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
   },
   gridList: {
     flexWrap: "nowrap",
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)"
   },
   title: {
@@ -29,23 +28,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 export default function SingleLineGridList() {
   const classes = useStyles();
 
