@@ -9,6 +9,7 @@ import Search from "./pages/search";
 import GlobalInfo from "./pages/about";
 import Home from "./pages/home";
 import Navbar from "./components/navbar";
+import Alter from "./pages/alter";
 
 axios.defaults.baseURL = "http://localhost:4543";
 
@@ -33,6 +34,7 @@ const App = () => {
           render={() => <GlobalInfo posts={posts} />}
         />
         <Route exact path="/search" render={() => <Search />} />
+        <Route exact path="/alter" component={Alter} />
       </div>
     </Router>
   );
