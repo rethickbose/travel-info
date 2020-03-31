@@ -35,6 +35,39 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/city-update-currency", function(req, res) {
+    const body = req.body;
+    TravelInfo.updateOne(
+      { cityName: body.cityName },
+      { currencyUsed: body.currencyUsed }
+    )
+      .then(objects => {
+        if (objects === null) {
+          res.json("Error: Does not exist");
+        } else {
+          res.json(objects);
+        }
+      })
+      .catch(err => {
+        console.log("Error: ", err);
+      });
+  });
+
+  app.post("/api/delete-city", function(req, res) {
+    const body = req.body;
+    TravelInfo.deleteOne({ cityName: body.cityName })
+      .then(objects => {
+        if (objects === null) {
+          res.json("Error: Does not exist");
+        } else {
+          res.json(objects);
+        }
+      })
+      .catch(err => {
+        console.log("Error: ", err);
+      });
+  });
+
   app.post("/api/create-new-entry", function(req, res, next) {
     const body = req.body;
     const travelInfoObject = new TravelInfo({
