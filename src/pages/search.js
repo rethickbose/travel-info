@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import axios from "axios";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,6 +12,13 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(30),
       width: "30ch"
     }
+  },
+  header: {
+    margin: "5% 0 1% 0",
+    textAlign: "center"
+  },
+  fields: {
+    margin: "0 0 25px 0"
   }
 }));
 
@@ -48,14 +56,17 @@ const Search = () => {
 
   return (
     <div>
-      <h5>Search</h5>
+      <Typography variant="h4" className={classes.header} gutterBottom>
+        Search City Details
+      </Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           id="countryName"
+          className={classes.fields}
           fullWidth
-          label="CITY NAME"
+          label="City Name"
           variant="outlined"
-          color="secondary"
+          color="primary"
           onChange={handlecityNameChange}
         />
 

@@ -1,7 +1,20 @@
 import React from "react";
 import Input from "../components/input";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    margin: "0 0 25px 0"
+  },
+  header: {
+    margin: "5% 0 1% 0",
+    textAlign: "center"
+  }
+});
 
 const Home = () => {
+  const classes = useStyles();
   const mystyle = {
     color: "white",
     margin: "10px",
@@ -12,11 +25,11 @@ const Home = () => {
   return (
     <div>
       <div>
-        <h4 style={mystyle}>TRAVEL INFORMATION SERVICE</h4>
-      </div>{" "}
-      <br />
+        <Typography variant="h4" className={classes.header} gutterBottom>
+          Add City
+        </Typography>
+      </div>
       <Input />
-      <br /> <br />
     </div>
   );
 };

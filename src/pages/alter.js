@@ -1,13 +1,26 @@
 import React from "react";
 import { useState } from "react";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+
+const useStyles = makeStyles({
+  root: {
+    margin: "0 0 25px 0"
+  },
+  header: {
+    margin: "5% 0 1% 0",
+    textAlign: "center"
+  }
+});
 
 const Alter = () => {
   const [cityName, setcityName] = useState("");
   const [currencyUsed, setcurrencyUsed] = useState("");
+
+  const classes = useStyles();
 
   const handleCITYNAMEChange = e => {
     setcityName(e.target.value);
@@ -48,51 +61,56 @@ const Alter = () => {
   return (
     <div>
       <div>
-        <br />
-        <br />
-        <br />
-        <h5>ALTER DETAILS</h5>
         <form onSubmit={handleUpdateSubmit}>
+          <Typography variant="h4" className={classes.header} gutterBottom>
+            Alter City Currency
+          </Typography>
           <TextField
             id="cityName"
+            className={classes.root}
             fullWidth
-            label="CITY NAME"
+            label="City Name"
             variant="outlined"
-            color="secondary"
+            color="primary"
             onChange={handleCITYNAMEChange}
           />
           <TextField
             id="currencyUsed"
+            className={classes.root}
             fullWidth
-            label="currency Used"
+            label="Currency Used"
             variant="outlined"
-            color="secondary"
+            color="primary"
             onChange={handleCURRENCYChange}
           />
           <Button type="submit" fullWidth variant="contained" color="primary">
             UPDATE
           </Button>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <h5>DELETE DETAILS</h5> <br />
+          <Typography variant="h4" className={classes.header} gutterBottom>
+            Delete City Details
+          </Typography>
         </form>
 
         <form onSubmit={handleDeleteSubmit}>
           <div>
             <TextField
               id="cityname1"
+              className={classes.root}
               fullWidth
-              label="CITY NAME"
+              label="City Name"
               variant="outlined"
-              color="secondary"
+              color="primary"
               onChange={handlecityname1Change}
             />
-            <Button type="submit" fullWidth variant="contained" color="primary">
+            <Button
+              type="submit"
+              className={classes.root}
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
               DELETE
-            </Button>{" "}
+            </Button>
           </div>
         </form>
       </div>

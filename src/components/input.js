@@ -7,11 +7,11 @@ import axios from "axios";
 axios.defaults.baseURL = "http://localhost:4543";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(3),
-      width: "35ch"
-    }
+  header: {
+    margin: "5% 0 1% 0"
+  },
+  fields: {
+    margin: "0 0 25px 0"
   }
 }));
 
@@ -70,43 +70,49 @@ export default function ColorTextFields() {
     >
       <TextField
         id="countryName"
-        label="COUNTRY NAME"
+        className={classes.fields}
+        fullWidth
+        label="Country Name"
         variant="outlined"
-        color="secondary"
+        color="primary"
         onChange={handleCOUNTRYNAMEChange}
       />
       <TextField
         id="cityName"
-        label="CITY NAME"
+        className={classes.fields}
+        fullWidth
+        label="City Name"
         variant="outlined"
-        color="secondary"
+        color="primary"
         onChange={handleCITYNAMEChange}
       />
-      <br />
       <TextField
         id="continent"
-        label="CONTINENT"
+        className={classes.fields}
+        fullWidth
+        label="Continent"
         variant="outlined"
-        color="secondary"
+        color="primary"
         onChange={handleCONTINENTChange}
       />
-      <br />
-
       <TextField
         id="currencyUsed"
-        label="CURRENCY"
+        className={classes.fields}
+        fullWidth
+        label="Currency"
         variant="outlined"
-        color="secondary"
+        color="primary"
         onChange={handleCURRENCYChange}
       />
       <TextField
         id="languages"
-        label="LANGUAGE SPOKEN"
+        className={classes.fields}
+        fullWidth
+        label="Language Spoken"
         variant="outlined"
-        color="secondary"
+        color="primary"
         onChange={handleLANGUAGESChange}
       />
-      <br />
       <Button
         type="submit"
         fullWidth

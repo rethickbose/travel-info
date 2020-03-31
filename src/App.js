@@ -1,10 +1,9 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../node_modules/materialize-css/dist/css/materialize.min.css";
 import "../node_modules/materialize-css/dist/js/materialize.min.js";
 import axios from "axios";
-
 import Search from "./pages/search";
 import GlobalInfo from "./pages/about";
 import Home from "./pages/home";

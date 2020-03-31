@@ -11,16 +11,16 @@ const Navbar = () => {
             <img src={logo} height="60" alt="logo" />
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
-                <Link to="/">Home </Link>
+                <Link to="/globalinfo"> Home </Link>
               </li>
               <li>
-                <Link to="/globalinfo">GLOBAL INFORMATION </Link>
+                <Link to="/"> Add City </Link>
               </li>
               <li>
-                <Link to="/search"> SEARCH CITY </Link>
+                <Link to="/search"> Search City </Link>
               </li>
               <li>
-                <Link to="/alter"> ALTER DETAILS </Link>
+                <Link to="/alter"> Alter Details </Link>
               </li>
             </ul>
           </div>
